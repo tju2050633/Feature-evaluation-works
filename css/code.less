@@ -1,0 +1,187 @@
+@import "shared/common";
+
+body {
+
+    // code默认有按下去的效果
+    .code {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+		inset 3px 3px 10px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 10px rgba(255, 255, 255, .6);
+
+        // home键鼠标悬停按下去的效果恢复
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
+    // 正文
+    li {
+        list-style: none;
+    }
+    
+    .accordion {
+        margin-top: 1rem;
+        overflow: hidden;
+        width: 90%;
+        border-radius: .2rem;
+        box-shadow: 0 0 .2rem rgba(0, 0, 0, 0.6);
+
+        li {
+            width: 100%;
+
+            input {
+                display: none;
+                &:checked ~ label i {
+                    transform: rotate(90deg);
+                }
+                &:checked ~ ol li {
+                    display: block;
+                }
+            }
+
+            label {
+                position: relative;
+                display: block;
+                width: 100%;
+                padding: .4rem 0rem .4rem 2.4rem;
+                font-size: .8rem;
+                cursor: pointer;
+                transition: all .3s;
+
+                color: rgba(255, 255, 255, .8);
+                text-shadow: .025rem .025rem 1px rgba(0, 0, 0, .3);
+
+                /* 渐变加毛玻璃效果 */
+                background: linear-gradient(
+                to right bottom,
+                rgba(255,255,255,.7),
+                rgba(255,255,255,.4),
+                rgba(255,255,255,.3)
+                );
+                /* 重点：元素背景模糊化 */
+                backdrop-filter: blur(11px);
+                /* 设置上高光，左高光 */
+                border-top: 1px solid rgba(255, 255, 255, .8);
+                border-left: 1px solid rgba(255, 255, 255, .8);
+        
+                &:hover {
+                    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+                inset 3px 3px 10px rgba(0, 0, 0, 0.3),
+                inset -3px -3px 10px rgba(255, 255, 255, .6);
+                }
+
+                i {
+                    position: absolute;
+                    top: calc(50%);
+                    transform: translateY(-50%);
+                    left: .5rem;
+                    font-size: 1rem;
+                    transition: all 0.5s;
+                    transform-origin: top;
+                    &:nth-child(2) {
+                        left: 1.5rem;
+                        font-size: .8rem;
+                    }
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    right: 20px;
+                    bottom: -14px;
+                    width: 30px;
+                    height: 15px;
+                    background-color: inherit;
+                    clip-path: polygon(0 0, 100% 0, 50% 100%);
+                }
+
+                
+            }
+
+            &:not(:first-child) label {
+                border-top: 1px solid #fff;
+            }
+
+            ol {
+                width: 100%;
+                background-color: rgba(255,255,255,.3);
+
+                li {
+                    display: none;
+                    position: relative;
+                    width: 100%;
+                    color: #fff;
+                    cursor: pointer;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: .06rem;
+                        left: 0;
+                        width: .1rem;
+                        height: 1rem;
+                        background-color: #fff;
+                        transform: scaleY(0);
+                        transition: all 0.5s;
+                    }
+
+                    &:hover::before {
+                        transform: scaleY(1);
+                    }
+
+                    input {
+                        display: none;
+                        &:checked ~ div {
+                            display: block;
+                        }
+                    }
+                    label {
+                        text-align: center;
+                        margin: 0 .5rem;
+                        padding: .1rem 0;
+                        font-size: .7rem;
+                        font-weight: 700;
+                        color: rgba(0,0,0,.5);
+                        text-shadow: .025rem .025rem 1px rgba(255, 255, 255, .8);
+                        letter-spacing: .3rem;
+                        background: linear-gradient(
+                            to right bottom,
+                            rgba(255,255,255,.5),
+                            rgba(255,255,255,.3),
+                            rgba(255,255,255,.2)
+                            );
+                        backdrop-filter: blur(0px);
+
+                    }
+                    div {
+                        display: none;
+                        overflow: hidden;
+                        img {
+                            display: block;
+                            width: 100%;
+                        }
+                        pre {
+                            padding: 0;
+                            text-indent: 0;
+                            color: rgba(0,0,0,.7);
+                            font-size: .1rem;
+                            white-space: pre-wrap;
+                        }
+                    }
+
+                }
+            }
+
+            &:nth-child(3) ol li:nth-child(1) label {
+                letter-spacing: normal;
+            }
+            &:nth-child(3) ol li:nth-child(2) label {
+                letter-spacing: normal;
+                color: #fff;
+                text-shadow: .07rem .07rem .1rem rgba(0, 0, 0, .4);
+            }
+
+        }
+    }
+   
+}

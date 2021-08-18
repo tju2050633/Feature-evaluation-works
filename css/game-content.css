@@ -1,0 +1,259 @@
+html {
+  font-size: 50px;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 320px / 15;
+  }
+}
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 360px / 15;
+  }
+}
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 375px / 15;
+  }
+}
+@media screen and (min-width: 384px) {
+  html {
+    font-size: 384px / 15;
+  }
+}
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 400px / 15;
+  }
+}
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 414px / 15;
+  }
+}
+@media screen and (min-width: 424px) {
+  html {
+    font-size: 424px / 15;
+  }
+}
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 480px / 15;
+  }
+}
+@media screen and (min-width: 540px) {
+  html {
+    font-size: 540px / 15;
+  }
+}
+@media screen and (min-width: 720px) {
+  html {
+    font-size: 720px / 15;
+  }
+}
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 750px / 15;
+  }
+}
+@media screen and (min-width: 750px) {
+  body {
+    width: 750px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body .return {
+  position: fixed;
+  z-index: 99999;
+  left: 0.1rem;
+  top: 0.1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+body .return span {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0.05rem 0.05rem 1px rgba(0, 0, 0, 0.4);
+}
+body .return:hover {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8), inset 3px 3px 10px rgba(0, 0, 0, 0.3), inset -3px -3px 10px rgba(255, 255, 255, 0.6);
+  transform: translateY(-0.1rem);
+}
+body input {
+  display: none;
+}
+body input:checked ~ .sidenav a {
+  transform: translateX(-100%);
+}
+body input:checked ~ .sidenav label {
+  left: 0;
+}
+body .sidenav {
+  position: fixed;
+  left: 0rem;
+  top: 2rem;
+}
+body .sidenav a {
+  display: block;
+  font-size: 0.4rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-style: italic;
+  /* 渐变加毛玻璃效果 */
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4));
+  /* 重点：元素背景模糊化 */
+  backdrop-filter: blur(11px);
+  /* 设置上高光，左高光 */
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.5);
+  text-shadow: 0.025rem 0.025rem 1px rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+body .sidenav a:hover {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8), inset 3px 3px 10px rgba(0, 0, 0, 0.3), inset -3px -3px 10px rgba(255, 255, 255, 0.6);
+}
+body .sidenav a i {
+  text-align: center;
+  font-size: 0.3rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0.025rem 0.025rem 1px rgba(0, 0, 0, 0.3);
+}
+body .sidenav label {
+  position: absolute;
+  right: -5%;
+  top: 0;
+  height: 100%;
+  width: 0.3rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #666;
+  transition: all 0.3s;
+}
+body .sidenav label span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+body div {
+  margin-top: 1rem;
+}
+body div .cn {
+  display: block;
+  text-align: center;
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.5);
+  text-shadow: 0.025rem 0.025rem 1px rgba(255, 255, 255, 0.8);
+}
+body div .en {
+  text-align: center;
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0.025rem 0.025rem 1px rgba(0, 0, 0, 0.3);
+}
+body div img {
+  width: 100%;
+}
+body .a {
+  position: relative;
+  top: 0.4rem;
+  width: 80%;
+  height: 2rem;
+  border: solid 0.2rem #fff;
+  box-shadow: 0 0 1.4rem #be28d2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: a 5s infinite;
+}
+body .a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2rem;
+  box-shadow: 0 0 5px rgba(190, 40, 210, 0.2);
+  background-color: rgba(100, 30, 225, 0.4);
+}
+body .a .b,
+body .a .b::before {
+  z-index: 999;
+  color: #fff;
+  position: absolute;
+  top: -10%;
+  font-size: 0.6rem;
+  font-weight: 900;
+}
+body .a .b::before {
+  content: '赛博朋克CyberPunk';
+  text-shadow: -0.1rem -0.1rem 0px #d3fa09, 0.1rem 0.1rem 0px #190af0;
+  clip-path: inset(100% 0px 0px 0px);
+  animation: move 5s steps(2) infinite;
+}
+@keyframes a {
+  0%,
+  70%,
+  80%,
+  90%,
+  100% {
+    border: solid 0.2rem #fff;
+    box-shadow: 0 0 1.8rem #be28d2;
+  }
+  75%,
+  85%,
+  95% {
+    border: solid 0.2rem rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 1.8rem #ff0001;
+  }
+}
+@keyframes move {
+  0% {
+    display: none;
+  }
+  70% {
+    display: none;
+  }
+  73% {
+    clip-path: inset(10% 0px 85% 0px);
+    transform: translate(0.2rem, 0.2rem);
+  }
+  76% {
+    clip-path: inset(80% 0px 0px 0px);
+    transform: translate(-0.2rem, 0.2rem);
+  }
+  79% {
+    clip-path: inset(10% 0px 85% 0px);
+    transform: translate(0px, 0.1rem);
+  }
+  82% {
+    clip-path: inset(50% 0px 30% 0px);
+    transform: translate(-0.1rem, 0px);
+  }
+  85% {
+    clip-path: inset(10% 0px 30% 0px);
+    transform: translate(0.1rem, 0px);
+  }
+  88% {
+    clip-path: inset(40% 0px 30% 0px);
+    transform: translate(0.1rem, 0.2rem);
+  }
+  91% {
+    clip-path: inset(50% 0px 30% 0px);
+    transform: translate(-0.2rem, 0.2rem);
+  }
+  94% {
+    clip-path: inset(80% 0px 5px 0px);
+    transform: translate(0.4rem, -0.2rem);
+  }
+  97% {
+    clip-path: inset(80% 0px 0px 0px);
+    transform: translate(-0.2rem, 0px);
+  }
+  100% {
+    clip-path: inset(80% 0px 0px 0px);
+    transform: translate(0px, 0px);
+  }
+}

@@ -1,0 +1,179 @@
+@import "shared/common";
+
+body {
+
+    // game默认有按下去的效果
+    .game {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+		inset 3px 3px 10px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 10px rgba(255, 255, 255, .6);
+
+        // home键鼠标悬停按下去的效果恢复
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
+    // 焦点图
+    .focus {
+        margin-top: 1rem;
+        width: 100%;
+        height: 6rem;
+
+        ul {
+            list-style: none;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+
+            li {
+                width: 20%;
+                height: 1rem;
+                cursor: pointer;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border: 0px solid transparent;
+                }
+
+                &:nth-child(1):hover ~ .bigImg {
+                    background-image: url(../img/game/focus/wow.jpg);
+                }
+                &:nth-child(1):hover ~ .frame {
+                    left: 0;
+                }
+                &:nth-child(2):hover ~ .bigImg {
+                    background-image: url(../img/game/focus/mc.jpg);
+                }
+                &:nth-child(2):hover ~ .frame {
+                    left: 20%;
+                }
+                &:nth-child(3):hover ~ .bigImg {
+                    background-image: url(../img/game/focus/lol.jpg);
+                }
+                &:nth-child(3):hover ~ .frame {
+                    left: 40%;
+                }
+                &:nth-child(4):hover ~ .bigImg {
+                    background-image: url(../img/game/focus/sky.jpg);
+                }
+                &:nth-child(4):hover ~ .frame {
+                    left: 60%;
+                }
+                &:nth-child(5):hover ~ .bigImg {
+                    background-image: url(../img/game/focus/cp.jpg);
+                }
+                &:nth-child(5):hover ~ .frame {
+                    left: 80%;
+                }
+            
+            }
+
+            .bigImg {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 5rem;
+                background: url(../img/game/focus/wow.jpg) no-repeat;
+                background-size: 100% 5rem;
+                transition: all 0.5s;
+            }
+
+            .frame {
+                position: absolute;
+                left: 0;
+                width: calc(20% - .1rem);
+                height: .9rem;
+                border: .1rem solid salmon;
+                pointer-events: none;
+                transition: all 0.5s;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -.24rem;
+                    left: calc(50% - .15rem);
+                    width: .3rem;
+                    height: .15rem;
+                    background-color: salmon;
+                    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+                }
+            }       
+
+        }
+    }
+
+    a {
+        display: block;
+        margin-top: 1rem;
+        text-decoration: none;
+        /* 渐变加毛玻璃效果 */
+        background: linear-gradient(
+        to right bottom,
+        rgba(255,255,255,.7),
+        rgba(255,255,255,.4),
+        rgba(255,255,255,.3)
+        );
+        /* 重点：元素背景模糊化 */
+        backdrop-filter: blur(11px);
+        /* 设置上高光，左高光 */
+        border-top: 1px solid rgba(255, 255, 255, .8);
+        border-left: 1px solid rgba(255, 255, 255, .8);
+        transition: all .3s;
+
+        &:hover {
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+		inset 3px 3px 10px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 10px rgba(255, 255, 255, .6);
+        transform: translateY(-10px);
+        }
+
+        div:nth-child(1) {
+            .icon-moshoushijie {
+                font-size: 1.6rem;
+            }
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .iconfont {
+                text-align: center;
+                font-size: 1rem;
+                color: rgba(0,0,0,.8);
+                text-shadow: .025rem .025rem 1px rgba(255, 255, 255, .8);
+            }
+
+            .cn {
+                font-size: .6rem;
+                color: rgba(0,0,0,.8);
+                text-shadow: .025rem .025rem 1px rgba(255, 255, 255, .8);
+            }
+            .icon-gengduo {
+                color: rgba(0,0,0,.6);
+                margin-left: 1rem;
+                font-size: .8rem;
+            }
+            .en {
+                font-weight: 700;
+                font-size: .5rem;
+                color: rgba(255, 255, 255, .8);
+                text-shadow: .025rem .025rem 1px rgba(0, 0, 0, .3);
+            }
+        }
+        
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    
+    
+    
+}

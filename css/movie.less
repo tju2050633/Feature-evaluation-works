@@ -1,0 +1,247 @@
+@import "shared/common";
+
+body {
+
+    // movie默认按下去
+    .movie {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+		inset 3px 3px 10px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 10px rgba(255, 255, 255, .6);
+
+        // home键鼠标悬停按下去的效果恢复
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
+    //预览start
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 1rem;
+        background: transparent;
+
+        ul {
+            width: 100%;
+            height: 36rem;
+            overflow: hidden;
+            transition: all .3s;
+
+            li {
+                position: relative;
+                text-align: center;
+                list-style-type: none;
+                width: 100%;
+                height: 3rem;
+                transition: all .5s;
+                &:hover {
+                    height: 9rem;
+                    img {
+                        opacity: 1;
+                    }
+                }
+
+                img {
+                    width: 90%;
+                    height: 9rem;
+                    opacity: .8;
+                    transition: all .3s;
+                }
+                
+            }
+        }
+    }
+    
+    
+
+    // 正文start
+    .head {
+        h2:nth-child(1) {
+            text-align: center;
+            font-size: 1rem;
+            color: rgba(0,0,0,.5);
+            text-shadow: .025rem .025rem 1px rgba(255, 255, 255, .8);
+            margin-top: 1rem;
+            line-height: 1rem;
+            letter-spacing: .5rem;
+        }
+        h2:nth-child(2) {
+            font-size: .4rem;
+            font-weight: 700;
+            line-height: .6rem;
+            color: rgba(255, 255, 255, .8);
+            text-shadow: .025rem .025rem 1px rgba(0, 0, 0, .3);
+            letter-spacing: .2rem;
+        }
+    }
+    
+
+    .container {
+        position: relative;
+        width: 90%;
+        height: 15rem;
+        margin-top: 1rem;
+        border-radius: .4rem;
+        transition: all .3s;
+        color: #000;
+        text-decoration: none;
+        /* 渐变加毛玻璃效果 */
+        background: linear-gradient(
+        to right bottom,
+        rgba(255,255,255,.6),
+        rgba(255,255,255,.3),
+        rgba(255,255,255,.2)
+        );
+        backdrop-filter: blur(11px);
+        border-top: 1px solid rgba(255, 255, 255, .8);
+        border-left: 1px solid rgba(255, 255, 255, .8);
+
+        &:hover {
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+		inset 3px 3px 10px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 10px rgba(255, 255, 255, .6);
+        transform: translateY(-10px);
+        }
+        
+        .cover {
+            margin: .3rem auto;
+            width: 90%;
+            height: 8rem;
+            border-radius: .2rem;
+            overflow: hidden;
+            box-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .4);
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .text {
+            .title {
+                h2 {
+                    text-align: center;
+                    font-size: .5rem;
+                    font-family: serif;
+                    color: rgba(0,0,0,.5);
+                    text-shadow: .025rem .025rem 1px rgba(255, 255, 255, .8);
+                    margin: 0.2rem auto;
+                    line-height: .4rem;
+                    
+                }
+                h4 {
+                    text-align: center;
+                    font-size: .4rem;
+                    font-family: serif;
+                    color: rgba(255, 255, 255, .8);
+                    text-shadow: .025rem .025rem 1px rgba(0, 0, 0, .3);
+                    line-height: .4rem;
+                }
+            }
+
+            .director {
+                h2 {
+                    text-align: center;
+                    font-size: .4rem;
+                    color: rgba(0,0,0,.8);
+                    text-shadow: .025rem .025rem 1px rgba(255, 255, 255, .4);
+                    margin: 0.2rem auto 0rem;
+                    
+                }
+                h4 {
+                    text-align: center;
+                    font-size: .25rem;
+                    color: rgba(255, 255, 255, .8);
+                    text-shadow: .025rem .025rem 1px rgba(0, 0, 0, .3);
+                }
+            }
+            .star {
+                h2 {
+                    text-align: center;
+                    font-size: .3rem;
+                    color: rgba(0,0,0,.8);
+                    text-shadow: .025rem .025rem 1px rgba(255, 255, 255, .4);
+                    margin: 0.1rem auto 0rem;
+                    
+                }
+                h4 {
+                    text-align: center;
+                    font-size: .15rem;
+                    color: rgba(255, 255, 255, .8);
+                    text-shadow: .025rem .025rem 1px rgba(0, 0, 0, .3);
+                }
+            }
+            .type {
+                h2 {
+                    text-align: center;
+                    font-size: .3rem;
+                    color: rgba(0,0,0,.8);
+                    text-shadow: .025rem .025rem 1px rgba(255, 255, 255, .4);
+                    margin: 0.1rem auto 0rem;
+                    
+                }
+                h4 {
+                    text-align: center;
+                    font-size: .2rem;
+                    color: rgba(255, 255, 255, .8);
+                    text-shadow: .025rem .025rem 1px rgba(0, 0, 0, .3);
+                }
+            }
+            .comment {
+                position: relative;
+                margin: 0 auto;
+                width: 90%;
+                height: 3rem;
+                text-align: center;
+                
+                h2 {
+                    position: absolute;
+                    width: 100%;
+                    top: 15%;
+                    text-align: center;
+                    font-size: .6rem;
+                    font-family: serif;
+                    color: rgba(0,0,0,.8);
+                    margin: 0.1rem auto 0rem;
+                    &::before {
+                        content: "“";
+                        position: absolute;
+                        left: -5%;
+                        top: 0;
+                    }
+                    &::after {
+                        content: "”";
+                        position: absolute;
+                        right: -5%;
+                        bottom: -30%;
+                    }
+                }
+                h4 {
+                    position: absolute;
+                    width: 100%;
+                    bottom: 15%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-family: serif;
+                    font-size: .4rem;
+                    color: rgba(255, 255, 255, .8);
+                    &::before {
+                        content: "「";
+                        position: absolute;
+                        left: -8%;
+                        top: -20%;
+                    }
+                    &::after {
+                        content: "」";
+                        position: absolute;
+                        right: -8%;
+                        bottom: -10%;
+                    }
+                }
+
+                
+            }
+        }
+    }
+}

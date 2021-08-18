@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Amazing Codes</title>
+    <link rel="stylesheet" href="../css/shared/normalize.css">
+    <link rel="stylesheet" href="../icon-font/iconfont.css">
+    <link rel="shortcut icon" href="../favicon/code_favicon.ico" />
+    <link rel="stylesheet" href="../css/shared/body.css">
+    <link rel="stylesheet" href="../css/shared/nav.css">
+    <link rel="stylesheet" href="../css/shared/title.css">
+    <link rel="stylesheet" href="../css/code.css">
+    <link rel="stylesheet" href="../css/shared/footer.css">
+</head>
+<body>
+    <!-- 导航栏start -->
+    <div class="navbar">
+        <a href="book.html" class="book">
+            <h1>
+                <span class="iconfont icon-shu">书</span>
+            </h1>
+            <h1>Book</h1>
+        </a>
+        <a href="game.html" class="game">
+            <h1>
+                <span class="iconfont icon-youxi">游</span>
+            </h1>
+            <h1>Game</h1>
+        </a>
+        <a href="movie.html" class="movie">
+            <h1>
+                <span class="iconfont icon-dianying">影</span>
+            </h1>
+            <h1>Movie</h1>
+        </a>
+        <a href="../index.html" class="home">
+            <h1>
+                <span class="iconfont icon-tubiao15"></span>
+            </h1>
+            <h1>Home</h1>
+        </a>
+        <a href="code.html" class="code">
+            <h1>
+                <span class="iconfont icon-codeoptimizatio">码</span>
+            </h1>
+            <h1>Code</h1>
+        </a>
+        <a href="photograpy.html" class="photograpy">
+            <h1>
+                <span class="iconfont icon-sheying">光</span>
+            </h1>
+            <h1>Photo</h1>
+        </a>
+        <a href="author.html" class="author">
+            <h1>
+                <span class="iconfont icon-zuozhe">我</span>
+            </h1>
+            <h1>Author</h1>
+        </a>
+    </div>
+    <!-- 导航栏end -->
+
+    <!-- 标题start -->
+    <div class="title" id="title">
+        <div>
+            <span>程</span>
+            <span>序</span>
+            <span>员</span>
+            <span>改</span>
+            <span>变</span>
+            <span>世</span>
+            <span>界</span>
+        </div>
+        <div>
+            <p>Programmers change the world.</p>
+        </div>
+    </div>
+    <!-- 标题end -->
+
+    <!-- 正文start -->
+    <ul class="accordion">
+        <li>
+            <input type="checkbox" name="item" id="item1" />
+            <label for="item1">
+                Python
+                <i class="iconfont icon-Ioniconslogopython"></i>
+            </label>
+            <ol>
+                <!-- 汉诺塔 -->
+                <li>
+                    <input type="checkbox" id="python1">
+                    <label for="python1">汉诺塔</label>
+                    <div>
+                        <img src="../img/code/python/hanno_tower.png" alt="">
+                        <pre>from tkinter import*
+
+#全局定义
+n = 9
+
+window = Tk()
+window.title("汉诺塔")
+window.geometry("1000x500")
+
+canvas =Canvas(window,width=1000,height=450,bg="white")
+
+line1 = canvas.create_line(197,400,197,200)
+line2 = canvas.create_line(497,400,497,200)
+line3 = canvas.create_line(797,400,797,200)
+
+canvas.pack()
+
+label1 = Label(window,width=30,height=1,bg="black")
+label1.place(x=60,y=400,anchor="nw")
+
+label2 = Label(window,width=30,height=1,bg="black")
+label2.place(x=360,y=400,anchor="nw")
+
+label2 = Label(window,width=30,height=1,bg="black")
+label2.place(x=660,y=400,anchor="nw")
+
+#创造铁片
+
+piece1 = Label(window,width=27,height=1,bg="orange")
+piece1.place(relx=0.2,y=389,anchor="center")
+
+piece2 = Label(window,width=24,height=1,bg="pink")
+piece2.place(relx=0.2,y=367,anchor="center")
+
+piece3 = Label(window,width=21,height=1,bg="blue")
+piece3.place(relx=0.2,y=345,anchor="center")
+
+piece4 = Label(window,width=18,height=1,bg="green")
+piece4.place(relx=0.2,y=323,anchor="center")
+
+piece5 = Label(window,width=15,height=1,bg="purple")
+piece5.place(relx=0.2,y=301,anchor="center")
+
+piece6 = Label(window,width=12,height=1,bg="grey")
+piece6.place(relx=0.2,y=279,anchor="center")
+
+piece7 = Label(window,width=9,height=1,bg="yellow")
+piece7.place(relx=0.2,y=257,anchor="center")
+
+piece8 = Label(window,width=6,height=1,bg="red")
+piece8.place(relx=0.2,y=235,anchor="center")
+
+piece9 = Label(window,width=3,height=1,bg="black")
+piece9.place(relx=0.2,y=213,anchor="center")
+
+#主程序
+
+def Start1():
+    Hanno("line1","line2","line3",n)
+def Start2():
+    Hanno("line3","line2","line1",n)
+
+    
+heap = {"line1":[piece1,piece2,piece3,
+               piece4,piece5,piece6,
+               piece7,piece8,piece9],
+        "line2":[],
+        "line3":[]}
+location = {"line1":0.2,"line2":0.5,"line3":0.8}
+count = {"line1":9,"line2":0,"line3":0}
+        
+def Hanno(home,support,destination,n):
+    if n == 1:
+        if count[home] > 0:
+            count[home] -= 1
+        subject = heap[home].pop()
+        window.update()
+        for i in range(100000):
+            pass
+        subject.place(relx=location[destination],
+                      y=389-22*count[destination],
+                      anchor="center")
+        heap[destination].append(subject)
+        count[destination] += 1
+    else:
+        Hanno(home, destination, support, n-1)
+        if count[home] > 0:
+            count[home] -= 1
+        subject = heap[home].pop()
+        window.update()
+        for i in range(100000):
+            pass
+        subject.place(relx=location[destination],
+                      y=389-22*count[destination],
+                      anchor="center")
+        heap[destination].append(subject)
+        count[destination] += 1
+        
+        Hanno(support, home, destination, n-1)
+
+button1 = Button(window,width=4,height=2,text="开始修塔！",command=Start1)
+button1.place(x=300,y=480,anchor="center")
+button2 = Button(window,width=4,height=2,text="归位！",command=Start2)
+button2.place(x=600,y=480,anchor="center")
+
+window.mainloop()
+                        </pre>
+                    </div>
+                </li>
+                <!-- 分解质因数 -->
+                <li>
+                    <input type="checkbox" id="python2">
+                    <label for="python2">分解质因数</label>
+                    <div>
+                        <img src="../img/code/python/prime_disolve.png" alt="">
+                        <pre>num = int(input("输入一个整数："))
+output = str(num)+"="
+
+factor = 2
+while factor <= num:
+    while num%factor != 0 :
+        factor += 1
+    num = num/factor
+    output += str(factor)+"*"
+    factor = 2
+
+print(output[:-1])
+                            
+                        </pre>
+                    </div>
+                </li>
+                <!-- 行列式求值 -->
+                <li>
+                    <input type="checkbox" id="python3">
+                    <label for="python3">行列式求值</label>
+                    <div>
+                        <img src="../img/code/python/determinant.png" alt="">
+                        <pre>#初始化
+i = int(input("请输入行列式阶数："))
+X=[]
+sign =1
+result = 1
+con = True
+
+for r in range(i):
+        X.append(list(map(int, input(f"请输入行列式的第{r+1}行：").split(","))))
+        
+#首元化为非零
+def DeZero(row):
+    global con,sign
+    if X[row][row] == 0:
+        con = False
+        for r in range(row+1,i):
+            if X[r][row] != 0:
+                sign *= -1
+                X[row],X[r] = X[r],X[row]
+                con = True
+                break
+            
+#制造零
+def Zero(row):
+    for l in range(row+1,i):
+        k = X[row][l]/X[row][row]
+        for r in range(row+1,i):
+            X[r][l] -= X[r][row]*k
+
+#主程序
+for r in range(i):
+    DeZero(r)
+    if con:
+        Zero(r)
+    else:
+        result = 0
+        break
+    
+#打印结果
+if result != 0:
+    result *= sign
+    for r in range(i):
+        result *= X[r][r]
+    print(f"计算结果：{result}")
+else:
+    print("计算结果是：0")
+                        </pre>
+                    </div>
+                </li>
+                <!-- 人民币大写 -->
+                <li>
+                    <input type="checkbox" id="python4">
+                    <label for="python4">人民币大写</label>
+                    <div>
+                        <img src="../img/code/python/rmb.png" alt="">
+                        <pre>x=float(input("请输入[0-100亿]之间的数字：\n"))+0.001 #+0.001消除进制转化带来的一分钱的误差
+y=""
+dict={1:"壹",2:"贰",3:"叁",4:"肆",5:"伍",6:"陆",7:"柒",8:"捌",9:"玖",0:"零"}
+
+yi_wei=int(x//100000000)
+wan_wei=int(x%100000000//10000)
+ge_wei=int(x%10000//1)
+xiao_shu=int(x*100%100)
+
+shi_yi=yi_wei//10
+yi=yi_wei%10
+
+qian_wan=wan_wei//1000
+bai_wan=wan_wei%1000//100
+shi_wan=wan_wei%100//10
+wan=wan_wei%10//1
+
+qian=ge_wei//1000
+bai=ge_wei%1000//100
+shi=ge_wei%100//10
+ge=ge_wei%10//1
+
+shi_fen_wei=xiao_shu//10
+bai_fen_wei=xiao_shu%10//1
+    
+if yi_wei:
+    if shi_yi:
+        if shi_yi == 1:
+            y+="十"
+        else:
+            y+=str(dict[shi_yi])+"十"
+    if yi:
+        y+=str(dict[yi])+"亿"
+    elif qian_wan and (wan_wei or ge_wei):
+        y+="亿零"
+    else:
+        y+="亿"
+    
+if wan_wei:
+    if qian_wan:
+        y+=str(dict[qian_wan])+"仟"
+    elif yi_wei:
+        y+="零"
+    if bai_wan:
+        y+=str(dict[bai_wan])+"佰"
+    elif qian_wan and (shi_wan or wan):
+        y+="零"
+    if shi_wan:
+        if shi_wan == 1:
+            y+="十"
+        else:
+            y+=str(dict[shi_wan])+"十"
+    elif bai_wan and wan:
+        y+="零"
+    if wan:
+        y+=str(dict[wan])+"万"
+    elif ge_wei and qian:
+        y+="万零"
+    else:
+        y+="万"
+elif yi_wei and ge_wei:
+    y+="零"
+    
+if ge_wei:
+    if qian:
+        y+=str(dict[qian])+"仟"
+    elif wan_wei:
+        y+="零"
+    if bai:
+        y+=str(dict[bai])+"佰"
+    elif qian and (shi or ge ):
+        y+="零"
+    if shi:
+        if shi == 1:
+            y+="十"
+        else:
+            y+=str(dict[shi])+"十"
+    elif bai and ge:
+        y+="零"
+    if ge:
+        y+=str(dict[ge])
+        
+if yi_wei or wan_wei or ge_wei:
+    y+="圆"
+
+if xiao_shu:
+    if shi_fen_wei:
+        y+=str(dict[shi_fen_wei])+"角"
+    elif yi_wei or wan_wei or ge_wei:
+        y+="零"
+    if bai_fen_wei:
+        y+=str(dict[bai_fen_wei])+"分"
+    else:
+        y+="整"
+elif yi_wei or wan_wei or ge_wei:
+    y+="整"
+else:
+    y+="零圆整"
+
+print("大写结果是：\n"+y)
+                        </pre>
+                    </div>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <input type="checkbox" name="item" id="item2" />
+            <label for="item2">
+                HTML+CSS
+                <i class="iconfont icon-HTML-fill"></i>
+                <i class="iconfont icon-css"></i>
+            </label>
+            <ol>
+                <!-- 炫光文字 -->
+                <li>
+                    <input type="checkbox" id="html1">
+                    <label for="html1">炫光文字</label>
+                    <div>
+                        <img src="../img/code/htmlcss/xuanguangwenzi.png" alt="">
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link href=&quot;https://fonts.font.im/css?family=Merienda&quot; rel=&quot;stylesheet&quot;&gt;    &lt;style&gt;
+        *{
+            font-family: &#x27;Merienda&#x27;, cursive;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            background-color: rgb(0,0,0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main{
+            position: relative;
+            overflow: hidden;
+         
+        }
+        .txt{
+           
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
+            font-size: 168px;
+            background-color: rgb(0, 0, 0); 
+            user-select: none; 
+       
+        }
+        .txt::before{
+            content: &quot;live on.&quot;; 
+            position: absolute;
+          /*   text-shadow: 0 0 10px  rgb(255, 255, 255),
+            0 0 10px  rgb(255, 255, 255),
+            0 0 10px  rgb(255, 255, 255); */
+            filter: blur(3px);
+            mix-blend-mode: difference;        
+        }
+        .txt2{
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%;
+            height: 100%;
+             background: linear-gradient(90deg,rgb(255, 0, 212),rgb(0, 119, 255),rgb(255, 187, 0),rgb(1, 255, 77)); 
+            mix-blend-mode: multiply ; 
+         
+       
+        }
+        .txt3{
+            position: absolute;
+            top:-100%;
+            left:-100%;
+            right:0;
+            bottom:0;
+            background-image: radial-gradient(circle,white ,black 30%); 
+            background-size: 25% 25%;
+            
+             mix-blend-mode: color-dodge;  
+             animation: shine 3s linear infinite;
+ 
+        }
+        @keyframes shine {
+    100% {
+        transform: translate(50%,50%);
+    }
+}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;main&gt;
+    &lt;h1 class=&quot;txt&quot;&gt;live on.&lt;/h1&gt;
+    &lt;h1 class=&quot;txt2&quot;&gt;&lt;/h1&gt;
+    &lt;h1 class=&quot;txt3&quot;&gt;&lt;/h1&gt;
+&lt;/main&gt; 
+&lt;/body&gt;
+&lt;/html&gt;
+                        </pre>
+                    </div>
+                </li>
+                <!-- 折叠文字 -->
+                <li>
+                    <input type="checkbox" id="html2">
+                    <label for="html2">折叠文字</label>
+                    <div>
+                        <img src="../img/code/htmlcss/zhediewenzi.png" alt="">
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }   
+  
+         h1{
+             text-transform: uppercase;
+             letter-spacing: 3px;
+             font-size: 15vw;
+             transform: rotate(-10deg) skew(30deg);
+             position: relative;
+             color: rgba(0, 101, 253, 0.6);
+             -webkit-text-stroke: 2px  rgba(0, 101, 253, 0.6);
+             transition: all 1s; 
+         }
+         h1:hover{
+           /*   先叠层白的，再叠层黑的，先叠的白会覆盖到黑，白的地方亮，黑的地方暗 */
+            text-shadow:3px 3px 6px #fff,
+            3px 3px 6px #fff,
+            0 0 0px #000;           
+         }
+         h1::before{
+             content: &#x27;wdnmd&#x27;;
+             color: rgb(255, 255, 255);
+             position: absolute;
+             top: 0;
+             left: 0;
+             clip-path: inset(0 0 50% 0);
+             transition: all 1s;     
+             transform: rotateX(0deg) skew(0deg);       
+
+         }
+         h1:hover::before{
+            transform: rotateX(-30deg) skew(-30deg); 
+           color: rgb(243, 243, 243);
+           text-shadow: 0 0 1px black;
+            
+         }
+         h1::after{
+             content: &#x27;wdnmd&#x27;;
+             color: rgb(255, 255, 255);
+             position: absolute;
+             top: 0;
+             left: 0;
+             clip-path: inset(50% 0 0 0);
+             transition: all 1s;     
+             transform: rotateX(0deg) skew(0deg); 
+            
+         }
+         h1:hover::after{
+            transform: rotateX(40deg) skewX(20deg) ;
+            color: rgb(212, 212, 212);
+            text-shadow: 0 0 1px black;
+         }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   
+    &lt;h1&gt;wdnmd&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+                        </pre>
+                    </div>
+                </li>
+                <!-- 绘制文字 -->
+                <li>
+                    <input type="checkbox" id="html3">
+                    <label for="html3">绘制文字</label>
+                    <div>
+                        <img src="../img/code/htmlcss/huizhiwenzi.png" alt="">
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;北极光之夜&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+         main{
+             height: 100vh;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             background-color: rgb(30, 49, 71);
+         }
+
+        .txt{   
+            font-family: &#x27;fangsong&#x27;;
+            font-weight: 900;
+            font-size: 80px;
+            letter-spacing: 3px;
+            fill: transparent;
+            stroke: url(&quot;#yanse&quot;); 
+            stroke-width: 1.5px;
+            stroke-dasharray: 625;
+            stroke-dashoffset: 625;
+            animation: draw 5s linear infinite;
+        }
+        
+        @keyframes draw{
+           0%,5%{
+            stroke-dasharray: 625;
+            stroke-dashoffset: 625;
+            }
+            40%,60%{
+                stroke-dasharray: 625;
+                 stroke-dashoffset: 0;
+            }
+            100%{
+                stroke-dasharray: 625;
+                 stroke-dashoffset: 625;
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+ 
+&lt;body&gt;
+    &lt;main&gt;
+          &lt;svg width=&quot;500&quot; height=&quot;200&quot;&gt;
+              &lt;defs&gt;
+                 &lt;linearGradient id=&quot;yanse&quot;&gt;
+                     &lt;stop offset=&quot;33%&quot; stop-color=&quot;#00BFFF&quot;&gt;
+                         &lt;animate attributeName=&quot;stop-color&quot;
+                         from=&quot;#00BFFF&quot; to=&quot;#FF8C00&quot; dur=&quot;5s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animate&gt;
+                     &lt;/stop&gt;
+                     &lt;stop offset=&quot;66%&quot; stop-color=&quot;#00FFFF&quot;&gt;&lt;/stop&gt;
+                     &lt;stop offset=&quot;100%&quot; stop-color=&quot;#00FA9A&quot;&gt;
+                        &lt;animate attributeName=&quot;stop-color&quot;
+                        from=&quot;#00FA9AF&quot; to=&quot;#FF00FF&quot; dur=&quot;5s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animate&gt;
+                     &lt;/stop&gt;
+                 &lt;/linearGradient&gt;
+              &lt;/defs&gt;
+              &lt;text x=&quot;30&quot; y=&quot;120&quot; class=&quot;txt&quot;&gt;北极光之夜。&lt;/text&gt;
+          &lt;/svg&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                            
+                        </pre>
+                    </div>
+                </li>
+                <!-- 分裂文字 -->
+                <li>
+                    <input type="checkbox" id="html4">
+                    <label for="html4">分裂文字</label>
+                    <div>
+                        <img src="../img/code/htmlcss/fenliewenzi.png" alt="">
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(60,60,70);
+        }
+        .a {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: 250px;
+            width: 300px;
+            margin: 0 30px;
+        }
+        .c,
+        .b {
+            position: absolute;
+            top: 0;
+            font: 900 100px &#x27;&#x27;;
+            line-height: 150px;
+            color: brown;
+            transition: .4s;
+        }
+        .c {
+            /* 裁剪文字上半部分，
+            四个值分别是top, right, bottom, left */
+            clip-path: inset(49% 0 0 0);
+        }
+        .b {
+            clip-path: inset(1% 0 50% 0);
+        }
+        .a:hover .b,
+        .a:hover .c {
+            top: calc(var(--i)*1px);
+        }
+        .d {
+            text-decoration: none;
+            color: cyan;
+            font: 600 30px &#x27;&#x27;;
+            line-height: 150px;
+            opacity: 0;
+            transition: .3s;
+        }
+        .a:hover .d {
+            opacity: 1;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;a&quot;&gt;
+        &lt;div class=&quot;b&quot; style=&quot;--i:-30&quot;&gt;BALD&lt;/div&gt;
+        &lt;div class=&quot;c&quot; style=&quot;--i:30&quot;&gt;BALD&lt;/div&gt;
+        &lt;a href=&quot;#&quot; class=&quot;d&quot;&gt;点赞/Fabulous&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;a&quot;&gt;
+        &lt;div class=&quot;b&quot; style=&quot;--i:-30&quot;&gt;TJU&lt;/div&gt;
+        &lt;div class=&quot;c&quot; style=&quot;--i:30&quot;&gt;TJU&lt;/div&gt;
+        &lt;a href=&quot;#&quot; class=&quot;d&quot;&gt;关注/Follow&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;a&quot;&gt;
+        &lt;div class=&quot;b&quot; style=&quot;--i:-30&quot;&gt;LJL&lt;/div&gt;
+        &lt;div class=&quot;c&quot; style=&quot;--i:30&quot;&gt;LJL&lt;/div&gt;
+        &lt;a href=&quot;#&quot; class=&quot;d&quot;&gt;收藏/Collection&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </pre>
+                    </div>
+                </li>
+                <!-- 赛博朋克按钮 -->
+                <li>
+                    <input type="checkbox" id="html5">
+                    <label for="html5">赛博朋克按钮</label>
+                    <div>
+                        <img src="../img/code/htmlcss/cyberpunk.png" alt="">
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            background-image: url(../img/赛博朋克/2.jpeg);
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+        }
+        .a {
+            position: relative;
+            top: 180px;
+            width: 500px;
+            height: 120px;
+            border: solid 10px #fff;
+            box-shadow: 0 0 70px rgb(190,40,210);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .a::after {
+            content: &#x27;&#x27;;
+            position: absolute;
+            width: 500px;
+            height: 120px;
+            box-shadow: 0 0 5px rgba(190,40,210);
+            background-color: rgba(100,30,225,.4);
+        }
+        .a:hover {
+            animation: a 1.5s;
+        }
+        @keyframes a {
+            0%, 34%, 68%, 100% {
+                border: solid 10px #fff;
+                box-shadow: 0 0 70px rgb(190,40,210);
+            }
+            17%, 51%, 85% {
+                border: solid 10px rgba(255,0,0,.5);
+                box-shadow: 0 0 90px rgb(255,0,0.8);
+            }
+        }
+        .b,
+        .b::before {
+            z-index: 999;
+            color: #fff;
+            position: absolute;
+            font-size: 65px;
+            font-weight: 900;
+            letter-spacing: 12px;
+        }
+        .b::before {
+            content: &#x27;TJU_LJL&#x27;;
+            text-shadow: -5px -5px 0px rgb(211,250,9),5px 5px 0px rgb(25,10,240);
+            clip-path: inset(100% 0px 0px 0px);
+        }
+        .a:hover .b::before {
+            animation: move 1.5s steps(2);
+        }
+        @keyframes move {
+            0% {
+                clip-path:inset(80% 0px 0px 0px);
+                transform: translate(-20px,-10px);
+            }
+            10% {
+                clip-path:inset(10% 0px 85% 0px);
+                transform: translate(10px,10px);
+            }
+            20% {
+                clip-path:inset(80% 0px 0px 0px);
+                transform: translate(-10px,10px);
+            }
+            30% {
+                clip-path:inset(10% 0px 85% 0px);
+                transform: translate(0px,5px);
+            }
+            40% {
+                clip-path:inset(50% 0px 30% 0px);
+                transform: translate(-5px,0px);
+            }
+            50% {
+                clip-path:inset(10% 0px 30% 0px);
+                transform: translate(5px,0px);
+            }
+            60% {
+                clip-path:inset(40% 0px 30% 0px);
+                transform: translate(5px,10px);
+            }
+            70% {
+                clip-path:inset(50% 0px 30% 0px);
+                transform: translate(-10px,10px);
+            }
+            80% {
+                clip-path:inset(80% 0px 5px 0px);
+                transform: translate(20px,-10px);
+            }
+            90% {
+                clip-path:inset(80% 0px 0px 0px);
+                transform: translate(-10px,0px);
+            }
+            100% {
+                clip-path:inset(80% 0px 0px 0px);
+                transform: translate(0px,0px);
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;a&quot;&gt;
+        &lt;div class=&quot;b&quot;&gt;
+            &lt;span&gt;TJU_LJL&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </pre>
+                    </div>
+                </li>
+                <!-- 流光按钮 -->
+                <li>
+                    <input type="checkbox" id="html6">
+                    <label for="html6">流光按钮</label>
+                    <div>
+                        <img src="../img/code/htmlcss/liuguanganniu.png" alt="">
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;流光按钮&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;流光按钮.css&quot;&gt;
+    &lt;style&gt;
+        * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+a {
+    position: relative;
+    width: 400px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #fff;
+    background-image: linear-gradient(to right,#03a9f4,
+    #f441a5,#ffeb3b,#09a8f4);
+    background-size: 400%;
+    border-radius: 50px;
+    z-index: 1;
+}
+a::before {
+    content:&#x27;&#x27;;
+    position: absolute;
+    top:-5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    background-image: linear-gradient(to right,#03a9f4,
+    #f441a5,#ffeb3b,#09a8f4);
+    background-size: 400%;
+    border-radius: 50px;
+    z-index: -1;
+    filter: blur(20px);
+}
+a:hover {
+    animation: sun 8s infinite;
+}
+a:hover::before {
+    animation: sun 8s infinite;
+}
+@keyframes sun {
+    100% {
+        background-position: -400% 0;
+    }
+}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;a href=&quot;#&quot;&gt;sunbutton&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </pre>
+                    </div>
+                </li>
+                <!-- 聚光灯 -->
+                <li>
+                    <input type="checkbox" id="html7">
+                    <label for="html7">聚光灯</label>
+                    <div>
+                        <img src="../img/code/htmlcss/juguangdeng.png" alt="">
+                        <pre>&lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;聚光灯&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;聚光灯.css&quot;&gt;
+        &lt;style&gt;
+            * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #222;
+    }
+    h1 {
+        position: relative;
+        text-transform: uppercase;
+        color: #333;
+        font-size: 8rem;
+    }
+    h1::after {
+        content: &#x27;spotlight&#x27;;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: transparent;
+        background-image: linear-gradient(to right,
+        #c23616,#192a56,#00d2d3,yellow,
+        #6d214f,#2e86de,#4cd137,#e84118);
+        background-clip: text;
+        -webkit-background-clip: text;
+        clip-path: circle(100px at 0% 50%);
+        animation: move 5s infinite;
+    }
+    @keyframes move {
+        0% {
+            clip-path: circle(100px at 0% 50%);
+        }
+        50% {
+            clip-path: circle(100px at 100% 50%);
+        }
+        100% {
+            clip-path: circle(100px at 0% 50%);
+        }
+    }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;spotlight&lt;/h1&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+                        </pre>
+                    </div>
+                </li>
+                <!-- 灯影按钮 -->
+                <li>
+                    <input type="checkbox" id="html8">
+                    <label for="html8">灯影按钮</label>
+                    <div>
+                        <img src="../img/code/htmlcss/dengyinganniu.png" alt="">
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;鼠标悬停发光按钮&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;鼠标悬停发光按钮.css&quot;&gt;
+    &lt;style&gt;
+        * {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vm;
+    height: 100vh;
+    background-color: #000;
+}
+.container a {
+    position: relative;
+    display: block;
+    width: 140px;
+    height: 60px;
+    line-height: 40px;
+    text-align: center;
+    margin: 40px;
+    color: aqua;
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    filter: hue-rotate(calc(var(--i)*60deg))
+}
+.container a::before,
+.container a::after {
+    content: &quot;&quot;;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid aqua;
+    transition: all 0.3s ease-in-out;
+}
+.container a::before {
+    top: 0;
+    left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+.container a::after {
+    right: 0;
+    bottom: 0;
+    border-top: 0;
+    border-left: 0;
+}
+.container a:hover {
+    background-color: aqua;
+    color: #000;
+    box-shadow: 0 0 50px aqua;
+    -webkit-box-reflect: below 1px
+    linear-gradient(transparent,rgba(0,0,0,.3));
+    transition-delay: 0.4s;
+}
+.container a:hover::before,
+.container a:hover::after {
+    width: 138px;
+    height: 58px;
+    transition-delay: 0s;
+}
+
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;a href=&quot;javascript:void(0);&quot; style=&quot;--i: 1&quot;&gt;点赞&lt;/a&gt;
+        &lt;a href=&quot;javascript:void(0);&quot; style=&quot;--i: 2&quot;&gt;投币&lt;/a&gt;
+        &lt;a href=&quot;javascript:void(0);&quot; style=&quot;--i: 3&quot;&gt;收藏&lt;/a&gt;
+        &lt;a href=&quot;javascript:void(0);&quot; style=&quot;--i: 4&quot;&gt;关注&lt;/a&gt;
+        &lt;a href=&quot;javascript:void(0);&quot; style=&quot;--i: 5&quot;&gt;分享&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </pre>
+                    </div>
+                </li>
+                
+            </ol>
+        </li>
+        <li>
+            <input type="checkbox" name="item" id="item3" />
+            <label for="item3">
+                C++
+                <i class="iconfont icon-language-cpp"></i>
+            </label>
+            <ol>
+                <li><label for="">敬请期待</label></li>
+                <li><label for="">Coming soon</label></li>
+            </ol>
+        </li>
+    </ul>
+    <!-- 正文end -->
+
+    <!-- 底部start -->
+    <a href="#title" class="footer">
+        <p>返回顶部<span class="iconfont icon-jieshuketang"></span></p>
+        <p>Click to return to top</p>
+    </a>
+    <!-- 底部end -->
+</body>
+</html>

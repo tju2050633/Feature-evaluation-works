@@ -1,0 +1,206 @@
+html {
+  font-size: 50px;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 320px / 15;
+  }
+}
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 360px / 15;
+  }
+}
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 375px / 15;
+  }
+}
+@media screen and (min-width: 384px) {
+  html {
+    font-size: 384px / 15;
+  }
+}
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 400px / 15;
+  }
+}
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 414px / 15;
+  }
+}
+@media screen and (min-width: 424px) {
+  html {
+    font-size: 424px / 15;
+  }
+}
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 480px / 15;
+  }
+}
+@media screen and (min-width: 540px) {
+  html {
+    font-size: 540px / 15;
+  }
+}
+@media screen and (min-width: 720px) {
+  html {
+    font-size: 720px / 15;
+  }
+}
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 750px / 15;
+  }
+}
+@media screen and (min-width: 750px) {
+  body {
+    width: 750px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body .game {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8), inset 3px 3px 10px rgba(0, 0, 0, 0.3), inset -3px -3px 10px rgba(255, 255, 255, 0.6);
+}
+body .game:hover {
+  box-shadow: none;
+}
+body .focus {
+  margin-top: 1rem;
+  width: 100%;
+  height: 6rem;
+}
+body .focus ul {
+  list-style: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+body .focus ul li {
+  width: 20%;
+  height: 1rem;
+  cursor: pointer;
+}
+body .focus ul li img {
+  width: 100%;
+  height: 100%;
+  border: 0px solid transparent;
+}
+body .focus ul li:nth-child(1):hover ~ .bigImg {
+  background-image: url(../img/game/focus/wow.jpg);
+}
+body .focus ul li:nth-child(1):hover ~ .frame {
+  left: 0;
+}
+body .focus ul li:nth-child(2):hover ~ .bigImg {
+  background-image: url(../img/game/focus/mc.jpg);
+}
+body .focus ul li:nth-child(2):hover ~ .frame {
+  left: 20%;
+}
+body .focus ul li:nth-child(3):hover ~ .bigImg {
+  background-image: url(../img/game/focus/lol.jpg);
+}
+body .focus ul li:nth-child(3):hover ~ .frame {
+  left: 40%;
+}
+body .focus ul li:nth-child(4):hover ~ .bigImg {
+  background-image: url(../img/game/focus/sky.jpg);
+}
+body .focus ul li:nth-child(4):hover ~ .frame {
+  left: 60%;
+}
+body .focus ul li:nth-child(5):hover ~ .bigImg {
+  background-image: url(../img/game/focus/cp.jpg);
+}
+body .focus ul li:nth-child(5):hover ~ .frame {
+  left: 80%;
+}
+body .focus ul .bigImg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 5rem;
+  background: url(../img/game/focus/wow.jpg) no-repeat;
+  background-size: 100% 5rem;
+  transition: all 0.5s;
+}
+body .focus ul .frame {
+  position: absolute;
+  left: 0;
+  width: calc(20% - 0.1rem);
+  height: 0.9rem;
+  border: 0.1rem solid salmon;
+  pointer-events: none;
+  transition: all 0.5s;
+}
+body .focus ul .frame::before {
+  content: "";
+  position: absolute;
+  top: -0.24rem;
+  left: calc(50% - 0.15rem);
+  width: 0.3rem;
+  height: 0.15rem;
+  background-color: salmon;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+body a {
+  display: block;
+  margin-top: 1rem;
+  text-decoration: none;
+  /* 渐变加毛玻璃效果 */
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3));
+  /* 重点：元素背景模糊化 */
+  backdrop-filter: blur(11px);
+  /* 设置上高光，左高光 */
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.3s;
+}
+body a:hover {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8), inset 3px 3px 10px rgba(0, 0, 0, 0.3), inset -3px -3px 10px rgba(255, 255, 255, 0.6);
+  transform: translateY(-10px);
+}
+body a div:nth-child(1) .icon-moshoushijie {
+  font-size: 1.6rem;
+}
+body a div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body a div .iconfont {
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 0.025rem 0.025rem 1px rgba(255, 255, 255, 0.8);
+}
+body a div .cn {
+  font-size: 0.6rem;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 0.025rem 0.025rem 1px rgba(255, 255, 255, 0.8);
+}
+body a div .icon-gengduo {
+  color: rgba(0, 0, 0, 0.6);
+  margin-left: 1rem;
+  font-size: 0.8rem;
+}
+body a div .en {
+  font-weight: 700;
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0.025rem 0.025rem 1px rgba(0, 0, 0, 0.3);
+}
+body a img {
+  display: block;
+  width: 100%;
+}
